@@ -26,6 +26,11 @@ public class Player implements GameObject{
         this.x = x;
         this.y = y;
     }
+
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
     public void action(char keyChar, WSwingConsoleInterface csi){
         boolean keyInputGood = true;
 

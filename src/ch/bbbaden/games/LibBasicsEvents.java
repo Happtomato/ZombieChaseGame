@@ -32,11 +32,17 @@ public class LibBasicsEvents {
         Player p = new Player(1,1);
 
 
+        int spawn = 0;
         setupGameObjects();
         // Draw static part
         setupGameBoard();
         do{
-            objects.add(new Zombie(16,16));
+            spawn++;
+
+            if(spawn == 5){
+                objects.add(new Zombie(16,10));
+                spawn = 0;
+            }
             // Draw game board
             csi.restore();
 
@@ -56,6 +62,7 @@ public class LibBasicsEvents {
             p.action(key,csi);
 
         }while (p.getHealth() >= 0);
+
     }
 
     private void setupGameBoard() {

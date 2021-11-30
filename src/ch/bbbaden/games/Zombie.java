@@ -19,9 +19,7 @@ public class Zombie implements GameObject{
 
     @Override
     public void update(WSwingConsoleInterface csi, Player player) {
-        if(player.getX() == x && player.getY() == y){
-            die = true;
-        }
+
         int move;
 
         int zombieOldX = x;
@@ -57,6 +55,10 @@ public class Zombie implements GameObject{
             csi.print(x, y, getDrawString(), getColor());
         }catch(Exception e){
             csi.print(zombieOldX, zombieOldY, getDrawString(), getColor());
+        }
+        if(player.getX() == x && player.getY() == y){
+            die = true;
+            player.setHealth(player.getHealth()-20);
         }
 
     }
